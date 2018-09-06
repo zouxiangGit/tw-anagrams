@@ -11,8 +11,8 @@ function anagrams(str) {
         , []));
 }
 
-function unique(allStr) {
-    return [...new Set(allStr)];
+function unique(array) {
+    return [...new Set(array)];
 }
 
 function removeChar(string, index) {
