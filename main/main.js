@@ -6,21 +6,22 @@ function anagrams(str) {
         return [str];
     }
     const charsArray = Array.from(str);
-    return unique(charsArray.reduce((result, char, index) => {
-        anagrams(removeElementAndCopy(charsArray, index))
+    let allStr = charsArray.reduce((result, char, index) => {
+        anagrams(removeChar(str, index))
             .forEach(shortStr => result.push(char + shortStr));
         return result;
-    }, []));
+    }, []);
+    return unique(allStr);
 }
 
 function unique(allStr) {
     return [...new Set(allStr)];
 }
 
-function removeElementAndCopy(array, index) {
-    let copy = Array.from(array);
-    copy.splice(index, 1);
-    return copy;
+function removeChar(string, index) {
+    let charArray = Array.from(string);
+    charArray.splice(index, 1);
+    return charArray.join('');
 }
 
 module.exports = anagrams;
