@@ -6,11 +6,15 @@ function anagrams(str) {
         return [str];
     }
     const charsArray = Array.from(str);
-    return charsArray.reduce((result, char, index) => {
+    return unique(charsArray.reduce((result, char, index) => {
         anagrams(removeElementAndCopy(charsArray, index))
             .forEach(shortStr => result.push(char + shortStr));
         return result;
-    }, []);
+    }, []));
+}
+
+function unique(allStr) {
+    return [...new Set(allStr)];
 }
 
 function removeElementAndCopy(array, index) {

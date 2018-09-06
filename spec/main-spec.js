@@ -20,4 +20,8 @@ describe('main()', () => {
     it('should return 24 str when str is 4 character', () => {
         expect(anagrams('abcd').length).toEqual(24);
     });
+
+    it('should return 3 str when str is three character and have repeat character', () => {
+        expect(anagrams('aab')).toEqual(['aab', 'aba', 'baa']);
+    });
 });
