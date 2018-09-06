@@ -5,13 +5,10 @@ function anagrams(str) {
     if (str.length === 1) {
         return [str];
     }
-    const charsArray = Array.from(str);
-    let allStr = charsArray.reduce((result, char, index) => {
-        anagrams(removeChar(str, index))
-            .forEach(shortStr => result.push(char + shortStr));
-        return result;
-    }, []);
-    return unique(allStr);
+    return unique(Array.from(str).reduce((result, char, index) =>
+            result.concat(anagrams(removeChar(str, index))
+                .map(shortStr => char + shortStr))
+        , []));
 }
 
 function unique(allStr) {
