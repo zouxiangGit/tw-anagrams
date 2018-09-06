@@ -1,5 +1,8 @@
 function anagrams(str) {
-    return [];
+    if(!str){
+        return [];
+    }
+    return [str];
 }
 
 module.exports = anagrams;
