@@ -16,4 +16,8 @@ describe('main()', () => {
     it('should return six str when str is three character', () => {
         expect(anagrams('abc')).toEqual(['abc', 'acb', 'bac', 'bca', 'cab', 'cba']);
     });
+
+    it('should return 24 str when str is 4 character', () => {
+        expect(anagrams('abcd').length).toEqual(24);
+    });
 });
